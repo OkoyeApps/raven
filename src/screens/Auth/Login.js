@@ -55,7 +55,7 @@ export default class Login extends React.PureComponent {
                 </Item>
 
               </View>
-              <Text style={styles.forgotText}>Forgot?</Text>
+              <TouchableOpacity><Text style={styles.forgotText}>Forgot?</Text></TouchableOpacity>
               <TouchableOpacity style={styles.loginButton}>
                 <Text style={styles.loginButtonText}>Login</Text>
               </TouchableOpacity>
