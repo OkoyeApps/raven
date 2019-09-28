@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   Dimensions,
+  KeyboardAvoidingView
 } from 'react-native';
 import { Input, Item, Icon, Label, Form } from 'native-base';
 import { Logo } from '../../assests/Logo';
@@ -19,79 +20,89 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 export default class Login extends React.PureComponent {
   render() {
     return (
-      <ImageBackground
-        source={require('../../assests/background.png')}
-        style={{ width: width, height: height }}>
-        <LinearGradient
-          style={{ flex: 1 }}
-          colors={[
-            'rgba(158, 0, 93, 0.6)',
-            'rgba(207, 17, 58, 0.6)',
-            'rgba(237, 28, 36, 0.6)',
-            'rgba(237, 28, 40, 0.6)',
-            'rgba(237, 28, 51, 0.6)',
-            'rgba(237, 29, 71, 0.6)',
-            'rgba(237, 29, 97, 0.6)',
-            'rgba(237, 30, 121, 0.6)',
-          ]}>
-          <View style={styles.container}>
-            <View style={styles.logo}>
-              <View style={{marginBottom : 30}}>
-                <Logo />
+      <KeyboardAvoidingView style={styles.keyboard} behavior="padding" enabled keyboardVerticalOffset={-height}
+      >
+        <ImageBackground
+          source={require('../../assests/background.png')}
+          style={{ width: width, height: height }}>
+          <LinearGradient
+            style={{ flex: 1 }}
+            colors={[
+              'rgba(158, 0, 93, 0.6)',
+              'rgba(207, 17, 58, 0.6)',
+              'rgba(237, 28, 36, 0.6)',
+              'rgba(237, 28, 40, 0.6)',
+              'rgba(237, 28, 51, 0.6)',
+              'rgba(237, 29, 71, 0.6)',
+              'rgba(237, 29, 97, 0.6)',
+              'rgba(237, 30, 121, 0.6)',
+            ]}>
+            <View style={styles.container}>
+              <View style={styles.logo}>
+                <View style={{ marginBottom: 30 }}>
+                  <Logo />
 
+                </View>
+                <Text style={styles.logoText}>Welcome to Raven</Text>
+                <Text style={styles.logoText2}>Live shows at your comfort</Text>
               </View>
-              <Text style={styles.logoText}>Welcome to Raven</Text>
-              <Text style={styles.logoText2}>Live shows at your comfort</Text>
-            </View>
-            <Form style={{}}>
-              <View style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-                <Item regular style={styles.textInput}>
-                  <MaterialIcon style={{paddingLeft : 10}} active name="email-outline" size={20} />
-                  <Input placeholder="Email" />
-                </Item>
-                <Item regular style={styles.textInput}>
-                  <FeatherIcon  name="lock" size={20} style={{paddingLeft : 10}} />
-                  <Input placeholder="Password" />
-                </Item>
+              <Form style={{}}>
+                <View style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+                  <Item regular style={styles.textInput}>
+                    <MaterialIcon style={{ paddingLeft: 10 }} active name="email-outline" size={20} />
+                    <Input placeholder="Email" />
+                  </Item>
+                  <Item regular style={styles.textInput}>
+                    <FeatherIcon name="lock" size={20} style={{ paddingLeft: 10 }} />
+                    <Input placeholder="Password" />
+                  </Item>
 
+                </View>
+                <Text style={styles.forgotText}>Forgot?</Text>
+                <TouchableOpacity style={styles.loginButton}>
+                  <Text style={styles.loginButtonText}>Login</Text>
+                </TouchableOpacity>
+                <Text style={styles.OrText}>OR</Text>
+              </Form>
+
+              <View
+                style={styles.loginWithView}>
+                <TouchableOpacity style={styles.loginWith}>
+                  <FontAwesome
+                    name="facebook"
+                    size={20}
+                    color={'#FFFFFF'}
+                    style={{ textAlign: 'center' }}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.loginWith}>
+                  <FontAwesome
+                    name="google"
+                    size={20}
+                    color={'#FFFFFF'}
+                    style={{ textAlign: 'center' }}
+                  />
+                </TouchableOpacity>
               </View>
-              <Text style={styles.forgotText}>Forgot?</Text>
-              <TouchableOpacity style={styles.loginButton}>
-                <Text style={styles.loginButtonText}>Login</Text>
-              </TouchableOpacity>
-              <Text style={styles.OrText}>OR</Text>
-            </Form>
 
-            <View
-              style={styles.loginWithView}>
-              <TouchableOpacity style={styles.loginWith}>
-                <FontAwesome
-                  name="facebook"
-                  size={20}
-                  color={'#FFFFFF'}
-                  style={{ textAlign: 'center' }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.loginWith}>
-                <FontAwesome
-                  name="google"
-                  size={20}
-                  color={'#FFFFFF'}
-                  style={{ textAlign: 'center' }}
-                />
-              </TouchableOpacity>
+
+
+
             </View>
-
-
-
-          </View>
-        </LinearGradient>
-      </ImageBackground>
+          </LinearGradient>
+        </ImageBackground>
+      </KeyboardAvoidingView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  keyboard : {
+    flex : 1,
+    justifyContent : 'center',
+    alignItems : 'center',
+
+  },   
   container: {
     // flex: 1,
     justifyContent: 'space-between',
