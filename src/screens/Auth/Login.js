@@ -11,7 +11,10 @@ import { Input, Item, Icon, Label, Form } from 'native-base';
 import { Logo } from '../../assests/Logo';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 const { width, height } = Dimensions.get('window');
+import FeatherIcon from 'react-native-vector-icons/Feather';
+
 
 export default class Login extends React.PureComponent {
   render() {
@@ -43,14 +46,12 @@ export default class Login extends React.PureComponent {
             <Form style={{}}>
               <View style={{ justifyContent: 'space-between', alignItems: 'center' }}>
                 <Item regular style={styles.textInput}>
-                  <Icon active name="md-mail-open" />
-                  {/* <Label style={{ padding: 20 }}>Email</Label> */}
+                  <MaterialIcon style={{paddingLeft : 10}} active name="email-outline" size={20} />
                   <Input placeholder="Email" />
                 </Item>
                 <Item regular style={styles.textInput}>
-                  <Icon active name="lock" color={'white'} />
-                  {/* <Label style={{ padding: 20 }}>Password</Label> */}
-                  <Input placeholder="password" />
+                  <FeatherIcon  name="lock" size={20} style={{paddingLeft : 10}} />
+                  <Input placeholder="Password" />
                 </Item>
 
               </View>
