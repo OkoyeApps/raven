@@ -1,8 +1,8 @@
 import React from 'react';
-import {Input} from 'native-base';
+import {Input, Item} from 'native-base';
 
-export default CustomInput = ({
-  textInput,
+const CustomInput = ({
+  inputStyle,
   Icon,
   iconName,
   iconStyle,
@@ -10,7 +10,9 @@ export default CustomInput = ({
   placeholderText,
 }) => {
   return (
-    <Item regular style={textInput !== null ? textInput : {}}>
+    <Item
+      regular
+      style={inputStyle !== null ? inputStyle : {backgroundColor: 'black'}}>
       {Icon && (
         <Icon
           style={iconStyle !== null ? iconStyle : {}}
@@ -23,3 +25,5 @@ export default CustomInput = ({
     </Item>
   );
 };
+
+export default CustomInput;

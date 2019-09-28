@@ -7,13 +7,15 @@ import {
   ImageBackground,
   Dimensions,
 } from 'react-native';
-import {Input, Item, Icon, Label, Form} from 'native-base';
+import {Item, Icon, Label, Form} from 'native-base';
 import {Logo} from '../../assests/Logo';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 const {width, height} = Dimensions.get('window');
 import FeatherIcon from 'react-native-vector-icons/Feather';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 export default class Login extends React.PureComponent {
   render() {
@@ -44,50 +46,54 @@ export default class Login extends React.PureComponent {
             <Form style={{}}>
               <View
                 style={{justifyContent: 'space-between', alignItems: 'center'}}>
-                <Item regular style={styles.textInput}>
-                  <MaterialIcon
-                    style={{paddingLeft: 10}}
-                    active
-                    name="email-outline"
-                    size={20}
-                  />
-                  <Input placeholder="Email" />
-                </Item>
-                <Item regular style={styles.textInput}>
-                  <FeatherIcon
-                    name="lock"
-                    size={20}
-                    style={{paddingLeft: 10}}
-                  />
-                  <Input placeholder="Password" />
-                </Item>
+                <Input
+                  placeholderText="Email"
+                  Icon={MaterialIcon}
+                  iconName="email-outline"
+                  iconSize={20}
+                  inputStyle={styles.textInput}
+                  iconStyle={{paddingLeft: 20}}
+                />
+
+                <Input
+                  placeholderText="Password"
+                  Icon={FeatherIcon}
+                  iconName="lock"
+                  iconSize={20}
+                  inputStyle={styles.textInput}
+                  iconStyle={{paddingLeft: 20}}
+                />
               </View>
               <TouchableOpacity>
                 <Text style={styles.forgotText}>Forgot?</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.loginButton}>
-                <Text style={styles.loginButtonText}>Login</Text>
-              </TouchableOpacity>
+
+              <Button
+                buttonStyle={styles.loginButton}
+                buttonTitleStyle={styles.loginButtonText}
+                buttonTitle="Login"
+                text
+              />
               <Text style={styles.OrText}>OR</Text>
             </Form>
 
             <View style={styles.loginWithView}>
-              <TouchableOpacity style={styles.loginWith}>
-                <FontAwesome
-                  name="facebook"
-                  size={20}
-                  color={'#FFFFFF'}
-                  style={{textAlign: 'center'}}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.loginWith}>
-                <FontAwesome
-                  name="google"
-                  size={20}
-                  color={'#FFFFFF'}
-                  style={{textAlign: 'center'}}
-                />
-              </TouchableOpacity>
+              <Button
+                buttonStyle={styles.loginWith}
+                Icon={FontAwesome}
+                iconName="facebook"
+                iconSize={20}
+                iconColor={'#FFFFFF'}
+                iconStyle={{textAlign: 'center'}}
+              />
+              <Button
+                buttonStyle={styles.loginWith}
+                Icon={FontAwesome}
+                iconName="google"
+                iconSize={20}
+                iconColor={'#FFFFFF'}
+                iconStyle={{textAlign: 'center'}}
+              />
             </View>
           </View>
         </LinearGradient>
