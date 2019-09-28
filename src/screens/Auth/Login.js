@@ -7,23 +7,22 @@ import {
   ImageBackground,
   Dimensions,
 } from 'react-native';
-import { Input, Item, Icon, Label, Form } from 'native-base';
-import { Logo } from '../../assests/Logo';
+import {Input, Item, Icon, Label, Form} from 'native-base';
+import {Logo} from '../../assests/Logo';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 import FeatherIcon from 'react-native-vector-icons/Feather';
-
 
 export default class Login extends React.PureComponent {
   render() {
     return (
       <ImageBackground
         source={require('../../assests/background.png')}
-        style={{ width: width, height: height }}>
+        style={{width: width, height: height}}>
         <LinearGradient
-          style={{ flex: 1 }}
+          style={{flex: 1}}
           colors={[
             'rgba(158, 0, 93, 0.6)',
             'rgba(207, 17, 58, 0.6)',
@@ -36,40 +35,49 @@ export default class Login extends React.PureComponent {
           ]}>
           <View style={styles.container}>
             <View style={styles.logo}>
-              <View style={{marginBottom : 30}}>
+              <View style={{marginBottom: 30}}>
                 <Logo />
-
               </View>
               <Text style={styles.logoText}>Welcome to Raven</Text>
               <Text style={styles.logoText2}>Live shows at your comfort</Text>
             </View>
             <Form style={{}}>
-              <View style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+              <View
+                style={{justifyContent: 'space-between', alignItems: 'center'}}>
                 <Item regular style={styles.textInput}>
-                  <MaterialIcon style={{paddingLeft : 10}} active name="email-outline" size={20} />
+                  <MaterialIcon
+                    style={{paddingLeft: 10}}
+                    active
+                    name="email-outline"
+                    size={20}
+                  />
                   <Input placeholder="Email" />
                 </Item>
                 <Item regular style={styles.textInput}>
-                  <FeatherIcon  name="lock" size={20} style={{paddingLeft : 10}} />
+                  <FeatherIcon
+                    name="lock"
+                    size={20}
+                    style={{paddingLeft: 10}}
+                  />
                   <Input placeholder="Password" />
                 </Item>
-
               </View>
-              <TouchableOpacity><Text style={styles.forgotText}>Forgot?</Text></TouchableOpacity>
+              <TouchableOpacity>
+                <Text style={styles.forgotText}>Forgot?</Text>
+              </TouchableOpacity>
               <TouchableOpacity style={styles.loginButton}>
                 <Text style={styles.loginButtonText}>Login</Text>
               </TouchableOpacity>
               <Text style={styles.OrText}>OR</Text>
             </Form>
 
-            <View
-              style={styles.loginWithView}>
+            <View style={styles.loginWithView}>
               <TouchableOpacity style={styles.loginWith}>
                 <FontAwesome
                   name="facebook"
                   size={20}
                   color={'#FFFFFF'}
-                  style={{ textAlign: 'center' }}
+                  style={{textAlign: 'center'}}
                 />
               </TouchableOpacity>
               <TouchableOpacity style={styles.loginWith}>
@@ -77,13 +85,10 @@ export default class Login extends React.PureComponent {
                   name="google"
                   size={20}
                   color={'#FFFFFF'}
-                  style={{ textAlign: 'center' }}
+                  style={{textAlign: 'center'}}
                 />
               </TouchableOpacity>
             </View>
-
-
-
           </View>
         </LinearGradient>
       </ImageBackground>
@@ -93,18 +98,13 @@ export default class Login extends React.PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    // minHeight: (100 / 100) * height,
-    // maxHeight: (100 / 100) * height,
-    // paddingTop: (20 / 100) * height,
   },
   logo: {
-    marginTop: ((10 / 100) * height),
+    marginTop: (10 / 100) * height,
     alignItems: 'center',
     marginBottom: 20,
-
   },
   logoText: {
     fontFamily: 'Lato',
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontSize: 18,
     color: '#FFFFFF',
-    marginTop: 10
+    marginTop: 10,
   },
   forgotText: {
     fontFamily: 'Roboto',
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   textInput: {
     backgroundColor: '#FFFFFF',
     borderRadius: 4,
-    width: ((90 / 100) * width),
-    marginBottom: 10
-  }
+    width: (90 / 100) * width,
+    marginBottom: 10,
+  },
 });
