@@ -7,20 +7,20 @@ import {
   ImageBackground,
   Dimensions,
 } from 'react-native';
-import {Input, Item, Icon, Label, Button} from 'native-base';
-import {Logo} from '../../assests/Logo';
+import { Input, Item, Icon, Label, Form } from 'native-base';
+import { Logo } from '../../assests/Logo';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export default class Login extends React.PureComponent {
   render() {
     return (
       <ImageBackground
         source={require('../../assests/background.png')}
-        style={{flex: 1, width: width, height: height}}>
+        style={{ width: width, height: height }}>
         <LinearGradient
-          style={{flex: 1}}
+          style={{ flex: 1 }}
           colors={[
             'rgba(158, 0, 93, 0.6)',
             'rgba(207, 17, 58, 0.6)',
@@ -33,27 +33,34 @@ export default class Login extends React.PureComponent {
           ]}>
           <View style={styles.container}>
             <View style={styles.logo}>
-              <Logo />
+              <View style={{marginBottom : 30}}>
+                <Logo />
+
+              </View>
               <Text style={styles.logoText}>Welcome to Raven</Text>
               <Text style={styles.logoText2}>Live shows at your comfort</Text>
             </View>
-            <View style={{justifyContent: 'space-between'}}>
-              <Item regular floatingLabel style={{borderRadius: 4}}>
-                <Icon active name="md-mail-open" style={{color: '#FFF'}} />
-                <Label style={{padding: 20}}>Email</Label>
-                <Input />
-              </Item>
-              <Item regular floatingLabel style={{borderRadius: 4}}>
-                <Icon active name="lock" color={'white'} />
-                <Label style={{padding: 20}}>Password</Label>
-                <Input />
-              </Item>
+            <Form style={{}}>
+              <View style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+                <Item regular style={styles.textInput}>
+                  <Icon active name="md-mail-open" />
+                  {/* <Label style={{ padding: 20 }}>Email</Label> */}
+                  <Input placeholder="Email" />
+                </Item>
+                <Item regular style={styles.textInput}>
+                  <Icon active name="lock" color={'white'} />
+                  {/* <Label style={{ padding: 20 }}>Password</Label> */}
+                  <Input placeholder="password" />
+                </Item>
+
+              </View>
               <Text style={styles.forgotText}>Forgot?</Text>
               <TouchableOpacity style={styles.loginButton}>
                 <Text style={styles.loginButtonText}>Login</Text>
               </TouchableOpacity>
               <Text style={styles.OrText}>OR</Text>
-            </View>
+            </Form>
+
             <View
               style={styles.loginWithView}>
               <TouchableOpacity style={styles.loginWith}>
@@ -61,7 +68,7 @@ export default class Login extends React.PureComponent {
                   name="facebook"
                   size={20}
                   color={'#FFFFFF'}
-                  style={{textAlign: 'center'}}
+                  style={{ textAlign: 'center' }}
                 />
               </TouchableOpacity>
               <TouchableOpacity style={styles.loginWith}>
@@ -69,10 +76,13 @@ export default class Login extends React.PureComponent {
                   name="google"
                   size={20}
                   color={'#FFFFFF'}
-                  style={{textAlign: 'center'}}
+                  style={{ textAlign: 'center' }}
                 />
               </TouchableOpacity>
             </View>
+
+
+
           </View>
         </LinearGradient>
       </ImageBackground>
@@ -82,16 +92,18 @@ export default class Login extends React.PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
-    minHeight: (20 / 100) * height,
-    maxHeight: (60 / 100) * height,
+    // flex: 1,
     justifyContent: 'space-between',
-    paddingTop: (20 / 100) * height,
     paddingHorizontal: 20,
+    // minHeight: (100 / 100) * height,
+    // maxHeight: (100 / 100) * height,
+    // paddingTop: (20 / 100) * height,
   },
   logo: {
-    marginBottom: 60,
+    marginTop: ((10 / 100) * height),
     alignItems: 'center',
+    marginBottom: 20,
+
   },
   logoText: {
     fontFamily: 'Lato',
@@ -106,6 +118,7 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     fontSize: 18,
     color: '#FFFFFF',
+    marginTop: 10
   },
   forgotText: {
     fontFamily: 'Roboto',
@@ -139,7 +152,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     marginTop: 20,
   },
-  loginWithView:{
+  loginWithView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 25,
@@ -153,4 +166,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     justifyContent: 'center',
   },
+  textInput: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 4,
+    width: ((90 / 100) * width),
+    marginBottom: 10
+  }
 });
