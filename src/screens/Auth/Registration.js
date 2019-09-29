@@ -19,10 +19,8 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-// const {scale, height, width} = Dimensions.get('screen');
 export default class Registration extends React.PureComponent {
   componentDidMount(){
-    // alert(height)
   }
   render() {
     return (
