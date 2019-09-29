@@ -19,7 +19,6 @@ class App extends Component {
         <PersistGate  loading={<Welcome />} persistor ={persistor}>
             <Root>
               <Rootscreen />
-              {/* <Welcome /> */}
             </Root>
          </PersistGate>
       </Provider>
