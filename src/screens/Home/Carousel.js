@@ -4,7 +4,7 @@ import { Dimensions, View, Text, StyleSheet, Image, ImageBackground } from 'reac
 const { width, height } = Dimensions.get('window');
 import { Card, CardItem, Body } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { LogoNoText as LogoRed } from '../../assests/Logo';
 
 var data = [
     { title: "https://d1e4pidl3fu268.cloudfront.net/1516a0ab-618a-44bc-ae32-2e2786db8d0c/whe.crop_604x454_102,0.preview.png" },
@@ -21,7 +21,7 @@ class MyCarousel extends Component {
             <View style={{ margin: 0, padding: 0 }}>
                 <View>
                     <ImageBackground
-                        source={{ uri: item.title, width: width, height: ((40 / 100) * height), cache: 'default', }}
+                        source={{ uri: item.title, width: width, height: ((40 / 100) * height), cache: 'default', }} resizeMode="cover" resizeMethod="auto"
                         style={styles.image}>
                         {
                             index > 0 ? <FontAwesome style={{ paddingTop: 0, paddingLeft: 10 }} name="angle-left" color="#FFFFFF" size={30} /> : <FontAwesome />
@@ -48,7 +48,21 @@ class MyCarousel extends Component {
 
     render() {
         return (
-            <View style={{ backgroundColor: '#2B2D42', height: height, paddingTop: 20 }}>
+            <View style={styles.container}>
+                <View
+                    style={{
+                        backgroundColor: '#C4C4C4',
+                        width: width,
+                        height: ((5 / 100) * height),
+                        alignItems: 'center',
+                        justifyContent: 'center',
+
+                    }}>
+                    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <LogoRed />
+                    </View>
+
+                </View>
 
                 <Carousel
                     ref={(c) => { this._carousel = c; }}
@@ -64,10 +78,13 @@ class MyCarousel extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#2B2D42',
+    },
     image: {
         width: width,
         height: ((40 / 100) * height),
-        resizeMode: 'cover',
         justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center'
