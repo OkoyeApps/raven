@@ -7,13 +7,15 @@ import {
   StyleSheet,
   Image,
   ImageBackground,
+  FlatList,
+  TouchableOpacity,
   ScrollView,
 } from 'react-native';
 const {width, height} = Dimensions.get('window');
 // import {Card, CardItem, Body} from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {LogoNoText as LogoRed} from '../../assests/Logo';
-import ICard from '../../components/Card';
+import Card from '../../components/Card';
 
 var data = [
   {
@@ -29,6 +31,39 @@ var data = [
   {
     title:
       'https://wallpapertag.com/wallpaper/full/3/9/b/636812-amazing-weird-wallpapers-1920x1080.jpg',
+  },
+];
+
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    name: 'KORIEDE BELLO',
+    price: 'NGN 5000',
+    time: 'Tomorrow - 12:00PM',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    name: 'KORIEDE BELLO',
+    price: 'NGN 5000',
+    time: 'Tomorrow - 12:00PM',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d720',
+    name: 'KORIEDE BELLO',
+    price: 'NGN 5000',
+    time: 'Tomorrow - 12:00PM',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d722',
+    name: 'KORIEDE BELLO',
+    price: 'NGN 5000',
+    time: 'Tomorrow - 12:00PM',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d721',
+    name: 'KORIEDE BELLO',
+    price: 'NGN 5000',
+    time: 'Tomorrow - 12:00PM',
   },
 ];
 
@@ -103,7 +138,7 @@ class MyCarousel extends Component {
             <LogoRed />
           </View>
         </View>
-        <ScrollView >
+        <ScrollView>
           <View style={{maxHeight: (60 / 100) * height}}>
             <Carousel
               ref={c => {
@@ -116,39 +151,64 @@ class MyCarousel extends Component {
               style={{margin: 0, padding: 0, flex: 1}}
             />
           </View>
-          <View style={{flexDirection: "row", flexWrap: "wrap", width: width}}>
-          <ICard
-            cardColor="white"
-            cardTitle="KORIEDE BELLO"
-            cardsubHeading="NGN 5000"
-            cardText="Tomorrow - 12:00PM"
-            cardWidth={(40/100) * width}
-            cardHeight={250}
-          />
-           <ICard
-            cardColor="white"
-            cardTitle="KORIEDE BELLO"
-            cardsubHeading="NGN 5000"
-            cardText="Tomorrow - 12:00PM"
-            cardWidth={(40/100) * width}
-            cardHeight={250}
-          />
-          <ICard
-            cardColor="white"
-            cardTitle="KORIEDE BELLO"
-            cardsubHeading="NGN 5000"
-            cardText="Tomorrow - 12:00PM"
-            cardWidth={(40/100) * width}
-            cardHeight={250}
-          />
-           <ICard
-            cardColor="white"
-            cardTitle="KORIEDE BELLO"
-            cardsubHeading="NGN 5000"
-            cardText="Tomorrow - 12:00PM"
-            cardWidth={(40/100) * width}
-            cardHeight={250}
-          />
+          <View style={{flexDirection: 'row', flexWrap: 'wrap', width: width}}>
+            <View style={{marginBottom: 20}}>
+              <Text style={styles.textStyle}>My list</Text>
+              <FlatList
+                data={DATA}
+                horizontal={true}
+                renderItem={({item}) => (
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate("Search")}>
+                    <Card
+                      cardColor="white"
+                      cardTitle={item.name}
+                      cardsubHeading={item.price}
+                      cardText={item.time}
+                      cardWidth={(40 / 100) * width}
+                      cardHeight={250}
+                    />
+                  </TouchableOpacity>
+                )}
+              />
+            </View>
+            <View style={{marginBottom: 20}}>
+              <Text style={styles.textStyle}>Upcoming</Text>
+              <FlatList
+                data={DATA}
+                horizontal={true}
+                renderItem={({item}) => (
+                  <TouchableOpacity>
+                    <Card
+                      cardColor="white"
+                      cardTitle={item.name}
+                      cardsubHeading={item.price}
+                      cardText={item.time}
+                      cardWidth={(40 / 100) * width}
+                      cardHeight={250}
+                    />
+                  </TouchableOpacity>
+                )}
+              />
+            </View>
+            <View style={{marginBottom: 20}}>
+              <Text style={styles.textStyle}>Past Shows</Text>
+              <FlatList
+                data={DATA}
+                horizontal={true}
+                renderItem={({item}) => (
+                  <TouchableOpacity>
+                    <Card
+                      cardColor="white"
+                      cardTitle={item.name}
+                      cardsubHeading={item.price}
+                      cardText={item.time}
+                      cardWidth={(40 / 100) * width}
+                      cardHeight={250}
+                    />
+                  </TouchableOpacity>
+                )}
+              />
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -199,6 +259,15 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     color: '#FFFFFF',
+  },
+  textStyle: {
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    fontSize: 14,
+    lineHeight: 16,
+    color: '#FFFFFF',
+    margin: 10,
   },
 });
 

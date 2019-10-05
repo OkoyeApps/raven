@@ -8,6 +8,7 @@ const CustomCard = ({
   cardTitle,
   cardsubHeading,
   cardText,
+  shadowStyle,
 }) => {
   return (
     <View
@@ -18,6 +19,11 @@ const CustomCard = ({
         borderRadius: 4,
         margin: 5,
         marginBottom: 0,
+        shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,  
+    elevation: 5
       }}>
       <Image
         source={require('../assests/2baba.png')}
@@ -34,6 +40,7 @@ const CustomCard = ({
         <Text style={styles.cardsubHeadingText}>{cardsubHeading}</Text>
         <Text style={styles.cardText}>{cardText}</Text>
       </View>
+      <Text style={{justifyContent: "center", textAlign: "center"}}>View</Text>
     </View>
   );
 };
