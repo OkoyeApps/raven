@@ -5,7 +5,9 @@ import Welcome from '../../root';
 import authStack from "./navigators/stacks/authStack"
 import homeStack from './navigators/stacks/homeStack';
 
+
 const AppSwitchNavigator = createSwitchNavigator({
+
     Home_Default : homeStack,
     Auth: authStack,
     Welcome : {screen :Welcome },

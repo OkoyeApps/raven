@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 
-const CustomCard = ({
+const CustomCardWithText = ({
   cardColor,
   cardWidth,
   cardHeight,
@@ -38,6 +38,43 @@ const CustomCard = ({
   );
 };
 
+
+
+const CustomCardNoText = ({
+  cardColor,
+  cardWidth,
+  cardHeight,
+}) => {
+  return (
+    <View
+      style={{
+        width: cardWidth,
+        height: cardHeight,
+        backgroundColor: cardColor,
+        borderRadius: 4,
+        margin: 5,
+        marginBottom: 0,
+      }}>
+      <Image
+        source={require('../assests/falz4.png')}
+        style={{
+          width: '100%',
+          height: '100%',
+          borderTopRightRadius: 4,
+          borderTopLeftRadius: 4,
+          resizeMode: 'cover',
+        }}
+      />
+    </View>
+  );
+};
+
+
+
+
+
+
+
 const styles = StyleSheet.create({
   cardTitleText: {
     fontFamily: 'Roboto',
@@ -70,4 +107,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomCard;
+export  {CustomCardWithText,CustomCardNoText};

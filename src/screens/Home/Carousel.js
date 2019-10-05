@@ -13,7 +13,7 @@ const {width, height} = Dimensions.get('window');
 // import {Card, CardItem, Body} from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {LogoNoText as LogoRed} from '../../assests/Logo';
-import ICard from '../../components/Card';
+import { CustomCardWithText as  ICard} from '../../components/Card';
 
 var data = [
   {
