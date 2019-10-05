@@ -199,6 +199,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     color: '#FFFFFF',
+    
   },
 });
 

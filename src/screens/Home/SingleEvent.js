@@ -10,6 +10,11 @@ import { Container, Content } from 'native-base';
 
 
 const SingleCase = () => {
+
+    //  static navigationOptions = ({ navigation, navigationOptions }) => {
+
+
+
     return (
         <View style={{ backgroundColor: '#151515', flex: 1 }}>
             <SafeAreaView>
@@ -19,7 +24,7 @@ const SingleCase = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         height: ((40 / 100) * height),
-                        marginTop: 10
+                        marginTop: 30
                     }}>
                         <CustomCardNoText
                             cardColor="white"
