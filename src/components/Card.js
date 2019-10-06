@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 
-const CustomCard = ({
+const CustomCardWithText = ({
   cardColor,
   cardWidth,
   cardHeight,
@@ -19,11 +19,6 @@ const CustomCard = ({
         borderRadius: 4,
         margin: 5,
         marginBottom: 0,
-        shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,  
-    elevation: 5
       }}>
       <Image
         source={require('../assests/2baba.png')}
@@ -44,6 +39,43 @@ const CustomCard = ({
     </View>
   );
 };
+
+
+
+const CustomCardNoText = ({
+  cardColor,
+  cardWidth,
+  cardHeight,
+}) => {
+  return (
+    <View
+      style={{
+        width: cardWidth,
+        height: cardHeight,
+        backgroundColor: cardColor,
+        borderRadius: 4,
+        margin: 5,
+        marginBottom: 0,
+      }}>
+      <Image
+        source={require('../assests/falz4.png')}
+        style={{
+          width: '100%',
+          height: '100%',
+          borderTopRightRadius: 4,
+          borderTopLeftRadius: 4,
+          resizeMode: 'cover',
+        }}
+      />
+    </View>
+  );
+};
+
+
+
+
+
+
 
 const styles = StyleSheet.create({
   cardTitleText: {
@@ -77,4 +109,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomCard;
+export  {CustomCardWithText,CustomCardNoText};
