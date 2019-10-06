@@ -7,6 +7,7 @@ const CustomInput = ({
   iconName,
   iconStyle,
   iconSize,
+  iconColor,
   placeholderText,
 }) => {
   return (
@@ -19,6 +20,7 @@ const CustomInput = ({
           active
           name={iconName}
           size={iconSize}
+          color={iconColor}
         />
       )}
       <Input placeholder={placeholderText} />

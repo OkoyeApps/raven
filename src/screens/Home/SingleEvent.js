@@ -1,7 +1,16 @@
 import React from 'react';
-import { View, Dimensions, Text, SafeAreaView, ScrollView, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
-import { CustomCardNoText, CustomCardWithText } from '../../components/Card';
-const { width, height } = Dimensions.get('window');
+import {
+  View,
+  Dimensions,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+} from 'react-native';
+import {CustomCardNoText, CustomCardWithText} from '../../components/Card';
+const {width, height} = Dimensions.get('window');
 
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Ionicons from 'react-native-vector-icons/AntDesign';
@@ -172,25 +181,22 @@ const SingleCase = () => {
 
 
 const styles = StyleSheet.create({
-    cardScroll: {
-        shadowColor: 'rgba(0,0,0, .4)', // IOS
-        shadowOffset: { height: 1, width: 1 }, // IOS
-        shadowOpacity: 1, // IOS
-        shadowRadius: 1, //IOS
-        backgroundColor: '#fff',
-        elevation: 2, // Android
-        // height: 250,
-        // width: 100,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-        marginHorizontal: 5,
-        marginVertical: 5,
-        marginBottom: 10
-
-
-    }
-})
-
+  cardScroll: {
+    shadowColor: 'rgba(0,0,0, .4)', // IOS
+    shadowOffset: {height: 1, width: 1}, // IOS
+    shadowOpacity: 1, // IOS
+    shadowRadius: 1, //IOS
+    backgroundColor: '#fff',
+    elevation: 2, // Android
+    // height: 250,
+    // width: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginHorizontal: 5,
+    marginVertical: 5,
+    marginBottom: 10,
+  },
+});
 
 export default SingleCase;

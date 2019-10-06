@@ -8,7 +8,8 @@ const CustomCardWithText = ({
   cardTitle,
   cardsubHeading,
   cardText,
-  onpress
+  onpress,
+  shadowStyle,
 }) => {
   return (
     <View
@@ -35,6 +36,7 @@ const CustomCardWithText = ({
         <Text style={styles.cardsubHeadingText}>{cardsubHeading}</Text>
         <Text style={styles.cardText}>{cardText}</Text>
       </View>
+      <Text style={{justifyContent: "center", textAlign: "center"}}>View</Text>
     </View>
   );
 };
