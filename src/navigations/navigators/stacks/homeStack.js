@@ -8,6 +8,15 @@ const { width } = Dimensions.get('window');
 import { BackIcon } from '../../../components/BackButtons';
 
 const Navigator = createStackNavigator({
+    Carousel_Screen: {
+        screen: Carousel,
+        navigationOptions : ({navigation}) => {
+            return {
+                header : null,
+               
+            }
+        }
+    },
     SingleEvent_Sceen: {
         screen: SingleEvent,
         navigationOptions: ({ navigation }) => {
@@ -35,15 +44,12 @@ const Navigator = createStackNavigator({
                 headerLeft:
                 <View style={{ paddingLeft: 10 }}>
                     <BackIcon navigation={navigation} name="ios-arrow-round-back" size={40} color={'#FFFFFF'} />
-
                 </View>
 
             }
         }
     },
-    Carousel_Screen: {
-        screen: Carousel
-    },
+ 
     Home_Screen: {
         screen: Home,
         navigationOptions: ({ navigation }) => {
@@ -56,7 +62,7 @@ const Navigator = createStackNavigator({
     defaultNavigationOptions: ({ navigation }) => {
         return {
             // header : null
-    
+
         }
     }
 })

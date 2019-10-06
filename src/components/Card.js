@@ -8,6 +8,7 @@ const CustomCardWithText = ({
   cardTitle,
   cardsubHeading,
   cardText,
+  onpress
 }) => {
   return (
     <View
@@ -18,7 +19,7 @@ const CustomCardWithText = ({
         borderRadius: 4,
         margin: 5,
         marginBottom: 0,
-      }}>
+      }} onStartShouldSetResponder={onpress}>
       <Image
         source={require('../assests/2baba.png')}
         style={{

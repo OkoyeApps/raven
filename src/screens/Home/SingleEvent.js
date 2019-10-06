@@ -6,14 +6,9 @@ const { width, height } = Dimensions.get('window');
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Ionicons from 'react-native-vector-icons/AntDesign';
 import FeatherIcon from 'react-native-vector-icons/FontAwesome';
-import { Container, Content } from 'native-base';
 
 
 const SingleCase = () => {
-
-    //  static navigationOptions = ({ navigation, navigationOptions }) => {
-
-
 
     return (
         <View style={{ backgroundColor: '#151515', flex: 1 }}>
@@ -74,10 +69,11 @@ const SingleCase = () => {
                         <Text style={{
                             fontFamily: 'Roboto',
                             fontStyle: 'normal',
-                            fontWeight: '900',
-                            fontSize: 10,
+                            // fontWeight: '900',
+                            fontSize: 12,
                             lineHeight: 12,
-                            color: '#FFFFFF'
+                            color: '#FFFFFF',
+                            fontWeight : 'bold'
                         }}>Tomorrow - 12:00PM</Text>
                     </View>
                     <View style={{ margin: 20, marginHorizontal: 30, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>

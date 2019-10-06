@@ -33,6 +33,10 @@ var data = [
 ];
 
 class MyCarousel extends Component {
+componentWillMount(){
+  // console.log("props check", this.props.navigation)
+}
+
   _renderItem({item, index}) {
     return (
       <View style={{margin: 0, padding: 0}}>
@@ -124,6 +128,7 @@ class MyCarousel extends Component {
             cardText="Tomorrow - 12:00PM"
             cardWidth={(40/100) * width}
             cardHeight={250}
+            onpress={() => this.props.navigation.navigate("SingleEvent_Sceen")}
           />
            <ICard
             cardColor="white"
