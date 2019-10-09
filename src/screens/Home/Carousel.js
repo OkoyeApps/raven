@@ -108,7 +108,7 @@ class MyCarousel extends Component {
             <Text style={styles.header1}>Music Show</Text>
             {'\n'}
             <Text style={{...styles.header1, fontWeight: '200', fontSize: 13}}>
-              NGN 5000
+              NGN 6000
             </Text>
             {'\n'}
             <Text>
