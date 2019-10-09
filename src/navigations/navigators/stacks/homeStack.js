@@ -10,6 +10,16 @@ import Freebies from '../../../screens/Home/FreeBies';
 import Search from '../../../screens/Home/Search';
 import Notification from '../../../screens/Notification/Notification'
 const Navigator = createStackNavigator({
+    
+    Carousel_Screen: {
+        screen: Carousel,
+        navigationOptions: ({ navigation }) => {
+            return {
+                header: null,
+
+            }
+        }
+    },
     Notification_Screen : {
         screen : Notification,
         navigationOptions : ({navigation}) => {
@@ -27,15 +37,6 @@ const Navigator = createStackNavigator({
     },
 
 
-    Carousel_Screen: {
-        screen: Carousel,
-        navigationOptions: ({ navigation }) => {
-            return {
-                header: null,
-
-            }
-        }
-    },
     Search_Screen: {
         screen: Search,
 
