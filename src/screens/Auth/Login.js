@@ -81,6 +81,7 @@ export default class Login extends React.PureComponent {
                   buttonStyle={styles.loginButton}
                   buttonTitleStyle={styles.loginButtonText}
                   buttonTitle="Login"
+                  onPress={() => {this.props.navigation.navigate("Home_Default")}}
                   text
                 />
                 <Text style={styles.OrText}>OR</Text>

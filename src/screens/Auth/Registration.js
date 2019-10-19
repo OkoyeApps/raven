@@ -118,6 +118,7 @@ export default class Registration extends React.PureComponent {
                     </View>
                   </View>
                   <Button
+                  onPress={() => this.props.navigation.navigate("Login")}
                     buttonStyle={styles.RegistrationButton}
                     buttonTitleStyle={styles.RegistrationButtonText}
                     buttonTitle="Sign Up"

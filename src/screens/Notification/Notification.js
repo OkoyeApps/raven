@@ -8,7 +8,7 @@ export default class Notification extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.HeaderText}>Notification</Text>
+        {/* <Text style={styles.HeaderText}>Notification</Text> */}
         <ScrollView>
         <View>
           <View style={{flexDirection: 'row'}}>

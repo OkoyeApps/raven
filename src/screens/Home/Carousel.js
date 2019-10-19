@@ -68,6 +68,7 @@ const DATA = [
 ];
 
 class MyCarousel extends Component {
+
   _renderItem({item, index}) {
     return (
       <View style={{margin: 0, padding: 0}}>
@@ -158,7 +159,9 @@ class MyCarousel extends Component {
                 data={DATA}
                 horizontal={true}
                 renderItem={({item}) => (
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate("Search")}>
+                  <TouchableOpacity
+                  style={{width: (40/100) * width}}
+                  onPress={() => this.props.navigation.navigate("Search")}>
                     <Card
                       cardColor="white"
                       cardTitle={item.name}
@@ -166,6 +169,7 @@ class MyCarousel extends Component {
                       cardText={item.time}
                       cardWidth={(40 / 100) * width}
                       cardHeight={250}
+                      onpress={() =>this.props.navigation.navigate("SingleEvent_Sceen")}
                     />
                   </TouchableOpacity>
                 )}
@@ -177,7 +181,7 @@ class MyCarousel extends Component {
                 data={DATA}
                 horizontal={true}
                 renderItem={({item}) => (
-                  <TouchableOpacity>
+                  <TouchableOpacity style={{width: (40/100) * width}}>
                     <Card
                       cardColor="white"
                       cardTitle={item.name}
@@ -259,6 +263,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     color: '#FFFFFF',
+    
   },
   textStyle: {
     fontFamily: 'Roboto',

@@ -1,6 +1,5 @@
 import {createAppContainer, createStackNavigator} from 'react-navigation';
 import Settings from '../../../screens/Settings/Settings'
-import Home from "../../../screens/Home/Home"
 import Notification from "../../../screens/Notification/Notification";
 
 const AppNav = createStackNavigator({

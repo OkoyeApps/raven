@@ -11,9 +11,12 @@ const customButton = ({
   iconStyle,
   iconColor,
   text,
+  onPress
+  
 }) => {
   return (
     <TouchableOpacity
+    onPress={onPress}
       style={
         buttonStyle !== null
           ? buttonStyle

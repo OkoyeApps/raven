@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Text,
   Dimensions,
+  FlatList
 } from 'react-native';
 import {CustomCardWithText as Card} from '../../components/Card';
 
@@ -45,30 +46,33 @@ const DATA = [
 ];
 
 export default class FreeBies extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+       header: () => null
+    } 
+}
   render() {
     return (
       <View style={styles.container}>
         <View style={{margin: 20}}>
-        <Text style={styles.textStyle}>FREEBIES</Text>
+          <Text style={styles.textStyle}>FREEBIES</Text>
         </View>
-        <ScrollView
-          >
-          <View style={{flexWrap: 'wrap', flexDirection: 'row', width: width, paddingLeft: 10}}>
-            {DATA.map(data => {
-              return (
-                <Card
-                  key={data.id}
-                  cardColor="white"
-                  cardTitle={data.name}
-                  cardsubHeading={data.time}
-                  cardText="121"
-                  cardWidth={(30 / 100) * width}
-                  cardHeight={200}
-                />
-              );
-            })}
-          </View>
-        </ScrollView>
+        <FlatList
+                data={DATA}
+                numColumns={3}
+                renderItem={({item}) => (
+                  <TouchableOpacity>
+                    <Card
+                      cardColor="white"
+                      cardTitle={item.name}
+                      cardsubHeading={item.price}
+                      cardText={item.time}
+                      cardWidth={(30 / 100) * width}
+                      cardHeight={200}
+                    />
+                  </TouchableOpacity>
+                )}
+              />
       </View>
     );
   }
