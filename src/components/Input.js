@@ -9,6 +9,10 @@ const CustomInput = ({
   iconSize,
   iconColor,
   placeholderText,
+  maxLength,
+  secureTextEntry,
+  keyboardType,
+  onChangeText
 }) => {
   return (
     <Item
@@ -23,7 +27,13 @@ const CustomInput = ({
           color={iconColor}
         />
       )}
-      <Input placeholder={placeholderText} />
+      <Input
+        onChangeText={onChangeText}
+        placeholder={placeholderText}
+        maxLength={maxLength}
+        secureTextEntry={secureTextEntry}
+        keyboardType={keyboardType}
+      />
     </Item>
   );
 };

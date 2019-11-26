@@ -24,7 +24,7 @@ const BottomNavigator = createBottomTabNavigator({
 })
 
 const switchnavigator = createSwitchNavigator({
-    Autth : authStack,
+    Auth : authStack,
     BottomNavigator : BottomNavigator
 });
 
