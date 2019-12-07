@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 const {width} = Dimensions.get('window');
 
-const Menu = ({navigation, ...rest}) => {
+const Menu = ({navigation, active, ...rest}) => {
   return (
     <View
       {...rest}
@@ -21,8 +21,8 @@ const Menu = ({navigation, ...rest}) => {
       <TouchableOpacity
         style={{justifyContent: 'center', alignItems: 'center'}}
         onPress={() => navigation.navigate('Carousel_Screen')}>
-        <SimpleLineIcons name={'home'} size={25} />
-        <Text>HOME</Text>
+        <SimpleLineIcons name={'home'} size={25}  color={(active=== 'home') ? 'red' : 'black'}/>
+        <Text style={{color: (active=== 'home') ? 'red' : 'black' }}>HOME</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={{justifyContent: 'center', alignItems: 'center'}}

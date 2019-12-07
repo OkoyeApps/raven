@@ -1,8 +1,5 @@
-import { RunLoaderDipatch, runNetworkDispatch } from './ApiUtility';
 import config from './Config';
 const baseUrl = config.localBaseUrl;
-const OpenLoader = 'OPEN_LOADER';
-const CloseLoader = 'CLOSE_LOADER';
 var currentStatus = null;
 class processRequest {
     constructor(accessToken) {
@@ -19,7 +16,6 @@ class processRequest {
     }
     sendGet(url) {
         try {
-            RunLoaderDipatch(this.dispatcher, this.dispatcherDetail, OpenLoader);
             this.header.headers["x-access-token"] = `Bearer ${this.header.headers["x-access-token"]}`
             var currentStatus = 200;
             console.log("Url to visit", `${baseUrl}${url}`);
@@ -46,7 +42,7 @@ class processRequest {
         return new Promise((resolve, reject) => {
 
             this.header.headers["x-access-token"] = `Bearer ${this.header.headers["x-access-token"]}`
-            fetch(`${config.baseUrl}${url}`, { method: 'POST', headers: this.header.headers, body: JSON.stringify(payload) })
+            fetch(`${baseUrl}${url}`, { method: 'POST', headers: this.header.headers, body: JSON.stringify(payload) })
                 .then(result => {
                     currentStatus = result.status;
                     return result.json().then(resolvedJson => Object.assign(resolvedJson, { status: currentStatus }))
@@ -97,25 +93,18 @@ class processRequest {
     formatErrorResponseMessage = (success, failure) => {
         return new Promise((resolve, reject) => {
             if (success && success.status === 200) {
-                console.log("in here 1")
-                RunLoaderDipatch(this.dispatcher, this.dispatcherDetail, CloseLoader);
-                runNetworkDispatch(this.dispatcher, false);
-                resolve({ success: true, data: success });
+                resolve({ ...success });
             }
             else {
                 if (failure && failure.message === 'Network request failed') {
-                    // runNetworkDispatch(this.dispatcher, true);
                     reject({ sucess: false });
                 } else if (failure && failure.status === 401) {
                     //Log the person out
                     //reset all auth state
-                    runNetworkDispatch(this.dispatcher, false);
                     reject({ success: false, data: null })
                 } else {
-                    runNetworkDispatch(this.dispatcher, false);
                     reject({ success: false })
                 }
-                RunLoaderDipatch(this.dispatcher, this.dispatcherDetail, CloseLoader);
             }
 
         })

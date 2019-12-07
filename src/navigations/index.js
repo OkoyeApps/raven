@@ -6,26 +6,27 @@ import authStack from "./navigators/stacks/authStack"
 import homeStack from './navigators/stacks/homeStack';
 import SettingsStack from './navigators/stacks/settingsStack';
 import HelpStack from './navigators/stacks/helpStack';
+import OnboardingStack from './navigators/stacks/onboarding';
 
-import MenuTab from '../components/menu/bottomNavigator';
+import MenuTab from '../components/menu/BottomNavigator';
 
 const AppSwitchNavigator = createSwitchNavigator({
     Home_Default : homeStack,
     Welcome: { screen: Welcome },
-
 })
 
 const BottomNavigator = createBottomTabNavigator({
     AppSwitchNavigator
 }, {
+    tabBarPosition : 'bottom', 
+    tabBarOptions : {activeTintColor: "red", activeBackgroundColor: "#BA0000"},
     tabBarComponent: (props) => <MenuTab {...props} navigation={props.navigation} />,
-    tabBarPosition : 'bottom', tabBarOptions : {activeTintColor: "#BA0000", activeBackgroundColor: "#BA0000"}
-
 })
 
 const switchnavigator = createSwitchNavigator({
-    Autth : authStack,
-    BottomNavigator : BottomNavigator
+    Onboarding : OnboardingStack,
+    Auth : authStack,
+    BottomNavigator : BottomNavigator,
 });
 
 

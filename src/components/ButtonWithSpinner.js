@@ -1,38 +1,22 @@
 import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
+import {Spinner} from 'native-base';
 
-const customButton = ({
+const customButtonSpinner = ({
   buttonStyle,
   buttonTitle,
   buttonTitleStyle,
-  Icon,
-  iconName,
-  iconSize,
-  iconStyle,
-  iconColor,
-  text,
-  onPress,
-  disabled
 }) => {
   return (
     <TouchableOpacity
-    disabled = {disabled}
-    onPress={onPress}
+    disabled = {true}
       style={
         buttonStyle !== null
           ? buttonStyle
           : {width: 200, height: 200, backgroundColor: '#FFFFFF'}
       }>
-      {Icon && (
-        <Icon
-          style={iconStyle !== null ? iconStyle : {}}
-          active
-          name={iconName}
-          size={iconSize}
-          color={iconColor}
-        />
-      )}
-      {text && (
+          <Spinner color="#ED1C24" size={40} />
+      {/* {text && (
         <Text
           style={
             buttonTitleStyle !== null
@@ -41,9 +25,9 @@ const customButton = ({
           }>
           {buttonTitle !== null ? buttonTitle : 'Button'}
         </Text>
-      )}
+      )} */}
     </TouchableOpacity>
   );
 };
 
-export default customButton;
+export default customButtonSpinner;

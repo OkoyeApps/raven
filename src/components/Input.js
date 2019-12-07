@@ -9,6 +9,7 @@ const CustomInput = ({
   iconSize,
   iconColor,
   placeholderText,
+  onChangeText
 }) => {
   return (
     <Item
@@ -23,7 +24,7 @@ const CustomInput = ({
           color={iconColor}
         />
       )}
-      <Input placeholder={placeholderText} />
+      <Input placeholder={placeholderText} onChangeText={onChangeText} />
     </Item>
   );
 };
